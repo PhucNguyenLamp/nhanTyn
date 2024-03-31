@@ -7,10 +7,15 @@ const MessageSchema = new Schema({
     message: String,
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     }
 });
 
+// Virtual for message's time
+MessageSchema.virtual("time").get(function () {
+    // add 7 utc to get vietnam time
+    return day().add(7, "hour").format("HH:mm");
+});
 
 // Export model
 module.exports = mongoose.model("Message", MessageSchema);

@@ -1,18 +1,36 @@
+/* if width > 1080 then max-width = 33 else max-width = 80 */
+@media screen and (min-width: 1080px) {
+  body {
+    max-width: 33%;
+  }
+}
+@media screen and (max-width: 1080px) {
+  body {
+    max-width: 80%;
+  }
+}
 body {
+  /* center */
+  display: flex;
+  align-items: left;
+  margin: auto;
+  flex-direction: column;
   padding: 50px;
-  
   background-color: rgb(225, 197, 235);
+
+
 }
 h2 {
   color: rgb(134, 22, 174);
   font-weight: 800;
-  font-size: 35px;
+  font-size: 4.2vh;
 }
 * {
-  font: 14px monospace, Helvetica, Arial, sans-serif;
+  font: 2vh monospace, Helvetica, Arial, sans-serif;
 }
 a {
   color: #00B7FF;
+  padding: 5px 0;
 }
 
 dt {

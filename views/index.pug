@@ -5,7 +5,8 @@ block content
   if messages
     dl
       each message in messages
-        dt= message.username
+        //- display time set next to the username
+        dt= message.username + " - " + message.time
         dd= message.message
   else
     p No messages

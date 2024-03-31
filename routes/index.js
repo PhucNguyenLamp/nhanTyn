@@ -8,6 +8,7 @@ router.get('/', async function(req, res, next) {
   // find first 10 newest messages using the date field
   let check = req.session.username ? true : false;
   let messages = (await Message.find().sort({date: -1}).limit(10).exec()).reverse();
+  console.log(messages)
   // reverse the order of the messages
   // messages = messages.reverse();
   // console.log(messages)

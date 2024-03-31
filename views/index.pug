@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h2 Messages
+  if messages
+    dl
+      each message in messages
+        dt= message.username
+        dd= message.message
+  else
+    p No messages
+  
+  form#myform(action="/", method="post")
+    if check == false
+      input(type="text", name="username", placeholder="Username")
+      input(type="text", name="message", placeholder="Message")
+      input(type="submit", value="Send")
+    else 
+      input(type="text", name="message", placeholder="Message")
+      input(type="submit", value="Send")
+  
+  //- add button to refresh the page
+  a(href="/") Refresh

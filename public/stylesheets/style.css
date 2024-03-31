@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  
+  background-color: rgb(225, 197, 235);
+}
+h2 {
+  color: rgb(134, 22, 174);
+  font-weight: 800;
+  font-size: 35px;
+}
+* {
+  font: 14px monospace, Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+
+dt {
+  font-weight: bold;
+  color: rgb(134, 22, 174)
+}

@@ -1,17 +1,8 @@
 extends layout
 
 block content
-  h2 Messages
-  if messages
-    dl
-      each message in messages
-        //- display time set next to the username
-        dt= message.username + " - " + message.time
-        dd= message.message
-  else
-    p No messages
-  
-  form#myform(action="/", method="post")
+  h2 Messages v12
+  form#myform(action="/", method="post", autocomplete="off")
     if check == false
       input(type="text", name="username", placeholder="Username")
       br
@@ -22,4 +13,13 @@ block content
       input(type="submit", value="Send")
   
   //- add button to refresh the page
-  a(href="/") Refresh
+  a(href="/") Refresh vì web này chưa có khả năng tự tải tin nhắn mới
+  if messages
+    dl
+      each message in messages
+        //- display time set next to the username
+        dt= message.username + " - " + message.time
+        dd= message.message
+  else
+    p No messages
+  

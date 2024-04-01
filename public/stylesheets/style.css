@@ -37,3 +37,6 @@ dt {
   font-weight: bold;
   color: rgb(134, 22, 174)
 }
+dd {
+  word-wrap: break-word;
+}

@@ -1,19 +1,18 @@
 extends layout
 
 block content
-  h2 Messages v12
+  h2 Messages v11
   form#myform(action="/", method="post", autocomplete="off")
     if check == false
-      input(type="text", name="username", placeholder="Username")
+      input#username(type="text", name="username", placeholder="Username")
       br
-      input(type="text", name="message", placeholder="Message")
+      input#input(type="text", name="message", placeholder="Message")
       input(type="submit", value="Send")
     else 
-      input(type="text", name="message", placeholder="Message")
+      input#input(type="text", name="message", placeholder="Message")
       input(type="submit", value="Send")
   
-  //- add button to refresh the page
-  a(href="/") Refresh vì web này chưa có khả năng tự tải tin nhắn mới
+  div#new-messages
   if messages
     dl
       each message in messages

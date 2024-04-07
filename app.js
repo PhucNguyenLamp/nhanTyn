@@ -16,8 +16,9 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
 }
-
+// express
 var app = express();
+
 // TODO: session
 app.use(session({
   secret: 'secret',

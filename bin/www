@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+var Message = require('../model/Message');
 /**
  * Module dependencies.
  */
@@ -18,10 +18,39 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
+app.use((req, res, next) => {
+  if (req.session.username) {
+    res.locals.username = req.session.username;
+  }
+  next();
+});
 
 var server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST'],
+  }
+});
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('chat-data', async (msg) => {
 
-/**
+    // broadcast
+    let newMessage = new Message({
+      username: msg.username,  // Use the session username if available, otherwise use the submitted username
+      message: msg.message,
+      date: msg.date,
+    });
+    
+    await newMessage.save();
+    console.log(newMessage)
+    // if (!req.session.username) req.session.username = req.body.username
+    // console.log(req.session.username);  
+    socket.broadcast.emit('chat-data', msg);
+  })
+})/**
  * Listen on provided port, on all network interfaces.
  */
 

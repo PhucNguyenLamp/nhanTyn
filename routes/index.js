@@ -9,15 +9,12 @@ router.get('/', async function(req, res, next) {
   let check = req.session.username ? true : false;
   let messages = await Message.find().sort({date: -1}).exec();
   console.log(messages)
-  // reverse the order of the messages
-  // messages = messages.reverse();
-  // console.log(messages)
   res.render('index', { title: 'Express', messages: messages, check: check });
 });
 
 router.post('/', async function(req, res, next) {
   // Create a new message
-  
+  // ko co dung nua, deprecated
   let newMessage = new Message({
     username: req.session.username || req.body.username,  // Use the session username if available, otherwise use the submitted username
     message: req.body.message,

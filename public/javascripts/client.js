@@ -8,7 +8,8 @@ myform.addEventListener('submit', e => {
     const data = {
         username: username,
         message: message,
-        date: new Date(),
+        // add 7 hour
+        date: new Date(new Date().getTime() + 7 * 60 * 60 * 1000),
     }
     
     const newMessage = document.querySelector('dl')

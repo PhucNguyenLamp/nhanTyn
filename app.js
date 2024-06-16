@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var session = require('express-session');
+const cors = require('cors');
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -18,6 +19,14 @@ async function main() {
 }
 // express
 var app = express();
+//cors 
+app.use(cors());
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 // TODO: session
 app.use(session({

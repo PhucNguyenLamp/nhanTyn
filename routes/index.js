@@ -27,4 +27,10 @@ router.post('/', async function(req, res, next) {
   res.redirect('/');
 
 });
+// send 10 first messages as json for api
+router.get('/api/messages', async function(req, res, next) {
+  let messages = await Message.find().sort({date: -1}).limit(10).exec();
+  res.json(messages);
+});
+
 module.exports = router;

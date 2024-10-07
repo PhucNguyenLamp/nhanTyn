@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://phucnguyenlamp:dungcomamo@cluster0.jhgumvn.mongodb.net/chatvoinguoila?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = "no";
 
 main().catch((err) => console.log(err));
 async function main() {
